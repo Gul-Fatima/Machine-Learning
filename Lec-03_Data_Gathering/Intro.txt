@@ -1,0 +1,17 @@
+Data Gsthering
+
+Usually we come across 4 types of formats
+
+    1. CSV : usually on kaggle we get data in csv formats
+    2. Json(Js on notation) / SQL : usually extracted data from api.(universally accepted format)
+    3. Fetch data from api (existing api and we can customize data according to our use.)
+    4. Web scraping (Restricted access, so scrap data from such websites through  parser.)
+
+Some  other sources
+    - Big query
+    - Data warehouse
+    - noSql database
+
+Full forms:
+    - csv : comma seperated values
+    - tsv : tab seperated values
