@@ -1,24 +1,43 @@
-                                        BIVARIATE Analysis
+                                                            BIVARIATE Analysis
 
 - NUMERICAL - NUMERICAL
     - Scatterplot 
         ~ sns.scatterplot(tips['col1'],tips['col2'])
 - NUMERICAL - CATEGORICAL
     - BarPlot
-        ~ Plot x axis on category and y -axis on numerical value.d
-- CATEGORICAL - CATEGORICA
-                                        MULTIVARIATE Analysis
+        ~ Plot x axis on category and y -axis on numerical value.
+        ~ sns.barplot(df['col1'],df['col2'])
+    - Box Plot
+        ~ We could say it allows to plot parallel boxplot.  
+        ~ sns.boxplot(df['categorical_col'],df['numerical_col'])
+    - Distplot
+        ~ sns.distplot(titanic[titanic['Survived']==0]['Age'])   // kde distplot for those who don't survived                                                 
+        ~ sns.distplot(titanic[titanic['Survived']==1]['Age'])   // kde distplot for those who  survived                
+        If i make it and run in a cell, it amalgamtes both plot and allow efficient comparision.                                 
+- CATEGORICAL - CATEGORICAL
+    - Crosstab : pd.crosstab(df['class'],df['Survived'])   // it will create a table let i had 3 class(rows) and 2 col (survived or not) -> gives value_count 
+    - Heatmap : It is the visualization of this crosstab.
+        ~ sns.heatmap(pd.crosstab(df['categorical_col1'],df['cat_col2']))
+
+
+                                                            MULTIVARIATE Analysis
 
 - NUMERICAL - NUMERICAL
     - Scatterplot 
-        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3]) //this hue tells the difference             (TRI VARIATE)
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3']) //this hue tells the difference             (TRI VARIATE)
             Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender']
     - Scatterplot 
-        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3],style = df['col4']) //this style differentiates           (Quad VARIATE)
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3'],style = df['col4']) //this style differentiates           (Quad VARIATE)
             Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender'], and style = df['Smoker'](whether ther person paying smokes or not), it will differntiate plotting by dot and cross.
     - Scatterplot 
-        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3],style = df['col4'], size= df['size']) //this style differentiates           (Multi VARIATE)
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3'],style = df['col4'], size= df['size']) //this style differentiates           (Multi VARIATE)
             Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender'], and style = df['Smoker'](whether ther person paying smokes or not), it will differntiate plotting by dot and cross, and size determines how many people were there alonmg that person. (In short comparing 5 cols at a time).
 
 - NUMERICAL - CATEGORICAL
-- CATEGORICAL - CATEGORICA
+    - BarPlot
+        ~ Plot x axis on category and y -axis on numerical value.
+        ~ sns.barplot(df['col1'],df['col2'], hue= df['col3'])
+    - Box Plot
+        ~ We could say it allows to plot parallel boxplot.
+        ~ sns.boxplot(df['categorical_col'],df['numerical_col'], hue = df['col3'])
+                    
