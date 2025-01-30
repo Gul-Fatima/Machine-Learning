@@ -1,0 +1,24 @@
+                                        BIVARIATE Analysis
+
+- NUMERICAL - NUMERICAL
+    - Scatterplot 
+        ~ sns.scatterplot(tips['col1'],tips['col2'])
+- NUMERICAL - CATEGORICAL
+    - BarPlot
+        ~ Plot x axis on category and y -axis on numerical value.d
+- CATEGORICAL - CATEGORICA
+                                        MULTIVARIATE Analysis
+
+- NUMERICAL - NUMERICAL
+    - Scatterplot 
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3]) //this hue tells the difference             (TRI VARIATE)
+            Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender']
+    - Scatterplot 
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3],style = df['col4']) //this style differentiates           (Quad VARIATE)
+            Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender'], and style = df['Smoker'](whether ther person paying smokes or not), it will differntiate plotting by dot and cross.
+    - Scatterplot 
+        ~ sns.scatterplot(tips['col1'],tips['col2'], hue = tips['col3],style = df['col4'], size= df['size']) //this style differentiates           (Multi VARIATE)
+            Let I have plotted scatterplot b/w two column between total_bill and tip, now i want to analyze this in terms of gender so hue = df['Gender'], and style = df['Smoker'](whether ther person paying smokes or not), it will differntiate plotting by dot and cross, and size determines how many people were there alonmg that person. (In short comparing 5 cols at a time).
+
+- NUMERICAL - CATEGORICAL
+- CATEGORICAL - CATEGORICA

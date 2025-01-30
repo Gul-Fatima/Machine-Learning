@@ -1,0 +1,41 @@
+                                EDA
+
+Univariate Analysis : Analysis on a single column at a time.
+    - While doing this, first determine the type of col i.e. numerical or categorical.
+    
+                                        
+                                         CATEGORICAL DATA
+- Lets take example of 'survived' col of titanic dataset.
+    - Total people travelling. -> df.info / df.shape
+    - The next question could be how many of them survivedand how many not? -> Countplot -> actually finding frequency count.
+        ~ sns.countplot(df['Survived'])
+        ~ df['Survived'].value_count()
+        ~ df['Survived'].value_count().plot(kind = 'bar')
+    - If I require this distribution in percentages -> Piechart.
+        ~ df['survived'].value_counts().plot(kind = 'pie,autopct = '%.2f')
+
+
+                                        NUMERICAL DATA
+- In numerical data value count is of no use as it is continuous
+- Max / Mean / Min
+- However we can make it seem like categorical data using histograms.(We divide the data in ranges i.e bins). -> determines data distribution
+    - plt.hist(df['Age']) //dy default bins = 10
+- Distplot is almost like histogram, however it also determines kde(determines data distribution, on y axis is probablity and x - axis is age).
+    - sns.distplot(df['Age'])  //if someone ask what is the probablity of a person being 40 yrs of age.
+    - Determines skewness also.
+- Boxplot -> gives us 5 number summary
+    - min = Q1 - 1.5IQR
+    -  Q1,
+    -  Q2,
+    -  Q3  = 
+    - Max = Q3 + 1.5IQR 
+    - value outside these minimun and maximum are termed as outlier.
+
+Some Random Functions:
+    - df['Age'].min()
+    - df['Age'].max()
+    - df['Age'].mean()
+    - df['Age'].stddev()
+    - df['Age'].skew() //determine skewness, 0:symmetrical  -   positive value:right  -   negative value:left
+    
+
