@@ -1,0 +1,35 @@
+- Feature engineering is the proces of using domaain knowledge to extract features from raw data.
+- These features ccan be used to improve the perfomanco of machine learning algorithms.
+
+- Feature engineering can be categorized into:
+    - Feature Transformation
+        ~ Missing value imputation
+        ~ Handling Categorical features
+        ~ Outlier detection
+        ~ Feature Scaling
+    - Feature Construction : manually creating a feature for dataset for better perfomance
+        - Like creating a column by mixing two or multiple cols to reduce no of columns, e.g. weight+age = bmi
+    - Feature Selection :
+        - Extract the relevant features from dataset for model training.
+    - Feature Extraction : progammatically creating a feature for dataset for better perfomance
+        - room + bathroom = sq. ft area
+
+////////////////////////////////////////////////////////////////////////////////////////
+ - Feature Transformation
+        ~ Missing value imputation
+            - scikit learn use for ml model training, doesn't accept NaN values.
+            - Either these values have to be removed or to be filled.
+            - Method-01 : remove values(if less in no)
+            - Method-02 : replace by mean,median(numerical) or mode(categorical)
+
+        ~ Handling Categorical features
+            - scikit learn used for ml model training, doesn't accept categorical values, only accept numerical ones.
+            - Method-01 : Encoding
+
+        ~ Outlier detection
+            - Remove outliers, specifically gwhile using those model that gets high impacted.
+
+        ~ Feature Scaling
+            - Like 2 cols age is in 10 like (20,80) while salary is in 1000's, it affecxts efficiency
+            - Different types of scaling are there.
+            - We try to range our data b/w -1 and 1
