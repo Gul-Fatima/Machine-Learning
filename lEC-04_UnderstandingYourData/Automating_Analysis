@@ -1,0 +1,16 @@
+Steps:
+    - create new jupyter notebook
+    - pip install pandas-profiling
+    - import pandas as pd
+    - read dataset in df
+    
+    - from pandas_profiling import ProfileReport
+    - prof = to_file(output_file = 'output.html')   // creates a file in html 
+
+Reading html file:
+    - Overview : basic info.
+    - Warnings : some point of concerns we have to solve.
+    - Variables: provide univariate analysis for each column.
+    - Interactions/correlations: Bivariate analysis-
+    - Missing values:
+    - Samples:

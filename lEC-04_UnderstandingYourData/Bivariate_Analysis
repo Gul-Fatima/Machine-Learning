@@ -19,6 +19,23 @@
     - Heatmap : It is the visualization of this crosstab.
         ~ sns.heatmap(pd.crosstab(df['categorical_col1'],df['cat_col2']))
 
+    - Groupby statement in pandas:
+        ~ df.groupby('Pclass').mean()['Survived']*100   //it gives answer like in 1 class out of 100 how many people survived in 2 class, in 3 class.
+        ~ (df.groupby('Pclass').mean()['Survived']*100).plot(kind = 'bar')
+        ~ (df.groupby('Sex').mean()['Survived']*100).plot(kind = 'bar') //percentage male vs female
+    - Cluster map
+        ~ sns.clustermap(pd.crosstab(df['categorical_col1'],df['cat_col2']))  //gives the closeness in values 
+    - Pairplot
+        ~ collection of scatter plot(it identifies all the numericsl column from data and plot scatter plot among them one by one)
+        ~ sns.pairplot(data)
+        ~ sns.pairplot(data, hue = df['gender']) //the hue differentiates the plotting on basis of gender.
+        ~ For col1 vs col1 it auto plots the histplot rather than scatter plot.
+    - Lineplot
+        ~ Its like we have joined all the points using a line                                                        
+        ~ Used for time based data(year/day time)
+        ~ new = flights.groupby('year').sum().reset_index()  // data is grouped by in terms of years
+        ~ sns.lineplot(new['year\'],new['passengar'] )
+
 
                                                             MULTIVARIATE Analysis
 
