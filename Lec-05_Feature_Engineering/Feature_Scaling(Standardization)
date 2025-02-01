@@ -1,0 +1,41 @@
+Feature Scaling is a technique to standardize the independent features present in the data in the fixed range. 
+
+Why do we need feature scaling:
+    - Feature scaling is necessary in machine learning because it ensures that all features in a dataset are on a similar scale, preventing any single feature with a large range from unduly influencing the model's predictions, leading to better model performance, faster convergence of optimization algorithms, and improved interpretability of the results.
+
+Types of Feature Scaling:
+    - Standardization
+    - Normalization(also called z - score index)
+
+- Standardization = xi - mean / std_deviation 
+    We loop through each entry(xi) and replace it with the calculated value from above formula.
+    e.g df['Age'], so it goes to each age entry and standardize it.
+    Points to be noted:
+        - The value obtained after calculation, if we find their mean it would be equal to 0, and standard deviation is equal to 1.
+
+        ~ scaler = StandardScaler()
+        ~ scaler.fit(X_train) //here fit calculates mean and std_dev.
+        ~  X_train_scaled = scaler.transform(X_train) //In this step we are looping through the rows and apply formula to each.
+        ~  X_test_scaled = scaler.transform(X_test) 
+    - We learn from only train(i.e we applty fit to only X_train), but transform boith test and train.
+    - This transform returns scaled values but as numpy array so we usually change into df
+    - we can see the difference by scatter and kde plot.
+
+Summary:
+    - It is usually a standard to apply standardizatio, there is no disadvantage of it.
+    - However in some algo it is a must i.e.
+        - K - Means
+        - KNN
+        - PCa
+        - ANN
+        - Gradient Descent
+    - Some in which we can skip:
+        - Decision Tree
+        - Random Forest 
+        - XgBoost
+
+
+
+        
+     
+
