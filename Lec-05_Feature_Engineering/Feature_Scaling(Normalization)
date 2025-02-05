@@ -1,0 +1,46 @@
+Normalization : It is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to use a common scale, without distorting differences in the ranges of values or losing information.
+
+Techniques:
+    - Min - Max scale
+    - Mean normalization
+    - Max absolute
+    - Robust scaling
+
+Min Max Scaling:
+    - Apply the following formula to each data record individually.
+        ~ xi = xi - xmin / xmax - xmin
+    - The output values ranges between 0 to 1
+    - Code example
+        ~ split train, test.
+        ~ fit on training data.
+        ~ find min, max value of dataset
+        ~ scale data, retransform into dataframe.
+
+Mean Normalization:
+    - xi = xi - xmean / xmax - xmin
+    - Doing mean centring.
+    - the value less than mean => negative
+    - the value greater than mean => positive
+    - Used very less, a substitute to it is standardization.
+
+Max absolute scalimg: 
+    - `xi = xi / | xmax |
+    - scikit-learn => MaxAbsScaler class
+    - used in sparse(data having many zeros) data.
+
+Robust Scaling:
+    - xi = xi - xmedian / IQR 
+    - scikit-learn => RobustScaling class.
+    - Good for data with many outliers.
+
+
+
+
+- when to use normalization and when to use  standardization
+     - usually standardization
+     - if we have min, max range confirmed => min-max scaling 
+       e.g img processing - range : 0 - 255
+     - robust for outliers
+     - max-abs for sparse matrix
+
+

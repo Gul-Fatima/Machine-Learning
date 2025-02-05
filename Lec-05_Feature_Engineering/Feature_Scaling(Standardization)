@@ -10,7 +10,7 @@ Types of Feature Scaling:
 - Standardization = xi - mean / std_deviation 
     We loop through each entry(xi) and replace it with the calculated value from above formula.
     e.g df['Age'], so it goes to each age entry and standardize it.
-    Points to be noted:
+    Points to be noted:ll
         - The value obtained after calculation, if we find their mean it would be equal to 0, and standard deviation is equal to 1.
 
         ~ scaler = StandardScaler()
