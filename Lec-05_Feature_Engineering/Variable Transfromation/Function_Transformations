@@ -1,0 +1,95 @@
+Mathematical_Transformations
+    - Log transform
+    - Reciprocal transform
+    - Power Transform
+    - Box-Cox
+    - Yeo Johnson
+
+In machine learning, mathematical transformation, also called feature transformation, is a technique that applies mathematical functions to data to alter its distribution or scale, making it more suitable for the machine learning model to learn patterns and improve its prediction accuracy, often by addressing issues like skewed data, outliers, or different feature scales; essentially, it transforms raw data into a format that better aligns with the assumptions of the learning algorithm.
+
+Following are the three provided y sklearn
+    Function Transformer 
+    Power transformer
+    Quantile transformer
+
+First of all how to know whether data is normally distributed or not:
+    sns.distplot
+    pd.skew() = 0
+    qqplot (most reliable way) : use scipy.stats library to plot
+
+Function transformer:
+    - Log transform : 
+        takes log of each value -> which makes it normally distributed
+        don't apply on negaative value
+        should apply on right skewed data.
+        log will also reducedispersion of data(variance)
+
+    - Reciprocal transform:
+        gives values 1/x 
+
+    - Square transform:
+        used for left skewed data
+    - Square root transform
+        gives x^1/2
+
+    - Power Transform
+
+
+Code: 
+    from sklear.preprocessing import FunctionTransformer
+    from sklearn.compose import ColumnTransformer
+
+    -> import data
+    -> check for missing values and remove or fill them
+    -> extract x and y
+    -> train test split
+    -> plot qqplot or sns .distplot
+    -> train model and calculate accuracy
+    -> trf = FunctionTransformer(func = np.log1p )
+    -> fit transform on train data
+    -> transform on test data, save both in a new variable let x_test_transformed
+    -> then retrain on new variables using algo
+    -> then calculate accuracy (these transformations usually affect linear models, othr model such as classifier etc don't get adversely affected by them)
+    -> If u encounter better accuracy, it is a standard in the industry too cross validate it, using cross_val_score.
+    
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Function to apply the transformation and visualize it
+def visualize_transform(data, transform_fn, title='Transformation Visualization'):
+    # Original Data Visualization
+    plt.figure(figsize=(10, 5))
+    plt.subplot(1, 2, 1)
+    plt.scatter(np.arange(len(data)), data, color='blue', label='Original Data')
+    plt.title('Original Data')
+    plt.xlabel('Index')
+    plt.ylabel('Value')
+    plt.legend()
+    
+    # Apply Transformation
+    transformed_data = np.array([transform_fn(x) for x in data])
+    
+    # Transformed Data Visualization
+    plt.subplot(1, 2, 2)
+    plt.scatter(np.arange(len(transformed_data)), transformed_data, color='red', label='Transformed Data')
+    plt.title('Transformed Data')
+    plt.xlabel('Index')
+    plt.ylabel('Value')
+    plt.legend()
+    
+    plt.suptitle(title)
+    plt.tight_layout()
+    plt.show()
+
+# Example Usage
+if __name__ == "__main__":
+    np.random.seed(42)
+    data = np.random.uniform(1, 100, 50)  # Random dataset between 1 and 100
+    transform_fn = lambda x: x**(1/2)  # Square root transformation
+    visualize_transform(data, transform_fn, title='Square Root Transformation')
+
+    
+
+

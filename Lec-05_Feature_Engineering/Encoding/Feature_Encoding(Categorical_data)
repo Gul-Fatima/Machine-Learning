@@ -1,0 +1,90 @@
+* Data is divided into two parts:
+    - numerical data
+    - categorical data
+* Categorical data is of two types  as well:
+    - Nominal (Categories have no relationships or order among them or say have equal weightage. E.g: state:Karachi, Islamabad)
+    - Ordinal (Categories have some relationships or order among them. E.g: grades in school so like grade A > grade B)
+
+* Techniques for Encoding categorical data:
+    - Ordinal encoding (use for ordinal data)
+    - One hot encoding (use for nominal data)
+    - Label encoding (similar to ordinal encoding)
+
+* If we have any column in our predictors(input data) that is ordinal categorical data, use ordinal encoding.
+* If the ordinal categorical data is in our target coulmn, use label encoder.
+
+ Ordinal encoding:
+    - It assigns each category a specific number.
+    - As it is ordinal specify which category to assign the highet value, and so on.
+    - Or it itself assigns value as it iterate through data.
+Code:
+    - first do train test split, learn transformation on train(fit), and apply transform on both.
+    
+    from sklearn.model_selection import train_test split
+    X_train, x_test, Y_train, y_test = train_test_split(df.iloc[:,0:2],df.iloc[:,-1],test_size = 0.2)
+    from sklearn.model_selection OrdinalEncoder
+    oe = OrdinalEncoder(categories= [[cat1,c2,c3],['csat1, cat2,cat3]]) # this specifies the ordering 0,1,2  
+    oe.fit(X_train) 
+    oe.transform(X_train) 
+    oe.transform(x_test) 
+
+Label encoding:
+
+    from sklearn.model_selection LabelEncoder
+    le = LabelEncoder(categories= [['good', 'average','poor']]) # this specifies the ordering 0,1,2  
+    le.fit(X_train) 
+    le.transform(X_train) 
+    le.transform(x_test) 
+    
+One hot encoding:
+    Case - 01 : Nominal data
+        - foreg blue, red, green
+        - It divides the categories in 3 coulmns(dummy variables) and give 1/0 value accordingly.
+     Dummy variable trap: always remove any one of the columns, i.e. if like there were three categories = 3 column, make 2 column.
+        - why bcz of multicolinearity
+     Multi colinearity: In ML columns must be independent of eachother, in above example if we made 3 columns we canfind the relation that in a row if we add the values of 3 columns, it equates to 1. Such kind relation create obstacles in linear models.
+    
+    Case - 02 : Too many categories
+        - In such scenario take the most frequent values and classify all left as others.
+
+Code: 
+    - using pandas
+    pd.get_dummies(df, columns = [col1,col2,..,coln])
+    * pd.get_dummies(df, columns = [col1,col2,..,coln],drop_first = True) #drop_first ensures n-1 coluns rather than n columns.
+    * pandas can be good for visualization but not for model training as it does not remember how it did the encoding last time, or could give differnt encoding eachtime. Therefore use sk
+
+    - using scikit learn, but we have to split data i it apply ohe to categorical columns and then concatenate the remainig data to it.
+    * train test split first
+    from sklearn.preprocessing import OneHotEncoder
+    ohe = OneHotEncoder(drop = 'first',sparse= False,dt_type = np.int32) #drop remove first col of each category -> ensure n-1 columns.
+    X_Train_new = ohe.fit_transform(X_train[['fuel','owner']]).toarray()
+    x_test_new  = ohe.transform(X_test[['fuel','owner']])   # .toarray() can skip this if sparse = False in ohe
+
+    np.hstack(X_train[['brand','km']].values,X_train_new).shape #concatenaion
+
+Case-02 coding in video,through use of control str
+------------------------------------------------------------------------
+
+Column transformer:
+    ColumnTransformer is a powerful tool that allows you to apply different transformations to different subsets of features within your dataset.
+    It helps you to automate the splitting then encoding and again concatenation explicitly, as required by the sklearn.
+
+    from sklearn.compose import COlumnTtransformer
+    transformer = ColumnTransformer(transformers = [
+        (tnf1,SimpleImputer(),['Fever']),
+        (tnf2,OrdinalEncoder(categories=[['Mild','Strong']]),['Cough']),
+        (tnf3,OneHotENcoder(sparse = False, drop = 'first),['Gender','City']),
+
+    ], remainder = 'passthrough') #remainders are the columnn on which we don't have to apply encoding.
+    transformer.fit_transform(X_train).shape
+    transformer.transform(X_test).shape
+
+
+
+        
+
+
+
+
+
+
