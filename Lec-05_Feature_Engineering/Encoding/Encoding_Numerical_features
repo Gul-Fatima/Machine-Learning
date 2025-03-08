@@ -1,0 +1,54 @@
+Sometimes we encounter data with high variation, an approach to solve such problem is to divide them into categories/bins and then encoding each category(using a number).
+There are two techniques to turn numerical data into categorical data.
+    - Discretization(Binning)
+    - Binarization
+
+Discretization(binning):
+    It is a process of transforming continuous variables into discrete variables by creating a set of contiguous intervals that span the range of the variable's values. Discretization is lso called binning, where bin is an alternative name for interval
+
+    Why use it:
+        1. To handle outliers
+        2. To improve the value spread
+    
+    Types of discretization
+        - Unsupervised
+            -> Equal width(uniform) binning 
+                = Define the no of bins
+                = Define width of bins (max - min / no of bins)
+                = Calculate frequency
+                = Plot them in histogram
+                * Works well for outlier, no affect on uniform spread.
+
+            -> Equal frequency(quantile) binning
+                = Define no of bins
+                = If there are n bins then each bins contains nth quantile value(i.e. if 10 bins then our fiirst bin would contain data that reaches till the 10th quantile value - 1st bin have 10 quantile, 2 bin 20th quantile and so on.)
+                = Therefore the width of each bin won't be equal.
+                * Works well for outlier, also ensure uniform value spread(normalize / balance them), therefore more commonly used.
+                
+            -> K-Means binning
+                = In it we use clustering algorithm(K-means), even in 2d,3d,...10d...nd.
+                = Used when data is somewhat discrete and spreaded in clusters.
+                = Intervals in this algo are termed as centroid.
+                - Does clustering based on calculating distance b/w data points.
+         Code:
+             = use sklearn class : KBinsDiscretizer and pass parameters(bins= ,strategy = uniform/quantile/kmeans,encoding = ordinal/ohe)      
+
+        - Supervised 
+            -> Decision tree binning
+
+        - Custom Binning
+            = CLustering based on your personal(doomain knowledge) preference(like dividng ages into child, young, adult).
+            = sklearn don't support it, use pandas for it.
+        
+
+============================================================================================================================================================================
+
+Binarization:
+    Convert continuous value into binary (0 or 1).
+    e.g adult or not ( below 18 / above 18).
+
+Code:
+    -> sklearn class : Binarization
+    -> Parameters(threshold = eg 18, copy + true ) if true would make a new class based on checking condition on a column else modify the existing class.
+
+    

@@ -1,0 +1,12 @@
+import pandas as pd
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("zain280/concrete-data")
+
+print("Path to dataset files:", path)
+
+# Assuming the downloaded data is in a CSV file named 'concrete_data.csv'
+data = pd.read_csv(path + '/concrete_data.csv')  # Adjust file name if needed
+
+data.head() # Now you can call head() on the DataFrame 'data'

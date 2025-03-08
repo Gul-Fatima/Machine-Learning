@@ -1,0 +1,17 @@
+Strategy-01
+     - Remove the entire row (not mostly preferred)
+
+Strategfy - 02 
+     Impute them:
+        -> Univariate : Use simple imputer class for it
+            ~ Numerical
+                Substitute with mean / median 
+                Substitute with some random variable
+                Substitute with end of distribution
+            ~ Categorical
+                Substitute with mode
+                Substitute with "missing"
+
+        -> Multivariate
+            ~ KNN Imputer
+            ~ Iterative Imputer

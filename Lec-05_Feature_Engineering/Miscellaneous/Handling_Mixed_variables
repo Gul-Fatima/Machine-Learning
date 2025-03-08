@@ -1,0 +1,7 @@
+Mixed Data:
+    It refers to when in a column we get both numerical as well as categorical data, quite difficult to handle.
+    
+    Case:01 Cabin B5, C23 (here B refers to something like compartment/bogey), inshort giving two info in one. -> use indexing 
+    Case-02 Data like 1,2,3,a,g,r,5,7, -> split in two columns according to datatype.
+
+     

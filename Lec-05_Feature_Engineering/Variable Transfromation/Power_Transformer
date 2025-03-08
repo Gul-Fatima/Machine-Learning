@@ -1,0 +1,13 @@
+Power Transformer
+    - Box Cox 
+        To apply the Box-Cox transformation, we need to find a suitable value of , denoted by , that yields a transformed variable with a distribution close to normality. There are several techniques to approach this problem, that is, to find the optimal value of that satisfies the normality assumption best.
+        Strictly apllicable to only numbers greater than 0 
+        Power(lambda) ranges from -5 to +5.
+
+    - Yeo Johnson Trnasform
+        A variation to Box Cox transform, so that it could be applied to negative numbers.
+
+    -> Use Power transformer class, apply if our data is not normally distributed.
+
+Code:
+    
