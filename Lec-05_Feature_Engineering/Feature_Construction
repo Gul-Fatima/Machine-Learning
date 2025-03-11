@@ -1,0 +1,7 @@
+Feature construction : 
+    * The process of creating new features from existing data by combining, transforming, or manipulating them
+    
+    
+Feature splitting:
+    *  refers to the technique of breaking down a single complex feature into multiple, simpler features, allowing the model to extract more granular information and potentially improve its efficiency.
+

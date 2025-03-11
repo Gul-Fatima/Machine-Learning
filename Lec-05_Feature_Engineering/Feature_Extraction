@@ -1,0 +1,56 @@
+Feature Extraction: 
+    * Refers to the process of identifying and extracting relevant characteristics (features) from raw data, transforming it into a more manageable format that can be used for further analysis and training machine.
+
+================================================================================
+Curse of dimensionality:
+    - In machine learning, the "curse of dimensionality" refers to the phenomenon where, as the number of features (dimensions) in a dataset increases, it becomes increasingly difficult to effectively analyze and model the data due to issues like data sparsity, where data points become spread too thinly across the feature space, making it hard to identify patterns and leading to poor model performance; essentially, the more dimensions, the more data is needed to adequately represent the problem space.
+
+TO Overcome COD:
+    We use techniques
+        - Feature selection
+            ~ Forward selection
+            ~ Backward selection
+        - Feature Extraction
+            ~ PCA
+            ~ LDA
+            ~ 
+
+==================================================================================
+PCA : 
+    * It is a feature extraction technique.
+    * Goal : To reduce, avoid curse of dimensionality -> optimize performance
+
+Example Scenario:
+    A photographer tries to capture 3d image(lets say some scenery) into 2d i.e a photograph.
+    The same is how PCA works -> reduce dimensions while keeping the essence of data
+    The main thing is , PCA tries to get best possible lower dimension
+
+Benefits:
+    - Ensures faster execution of algo, less computation.
+    - visualization (10d to 3d or 2d) -> as we can't comprehend data more than 3d
+Scenario:(feature selection)
+    There is a house pricing dataset with columns = rooms and grocery store near the house, we have to select feature that is most relevant.
+    Plot the graph between two columns(x on 1 axis, y on other0) and the columns with greater spread/variance must be selected
+Scenario:(feature extraction)
+    There is a house pricing dataset with columns = rooms and washrooms in house, we have to select feature that is most relevant.
+    Plot the graph between two columns(x on 1 axis, y on other0) and the columns with greater spread/variance must be selected - here we can not say the room or the washroom, can't select anyone only -> requires extraction. (Visualization : when spread is same both on x and y-axis).
+    Solution : size of the flat the bigger the size the more the washrooms/rooms the higher the price.
+    Mathematical Intuition behind feature extraction: 
+        no of principle components = no of original column in data(that is 2 in above eg).
+        Mirror plot ( refer to yt video 47 - part1ll)
+        Select one with high variance
+        "PCA geometrically finds new axes (principal components) that capture the most variance in the data, effectively rotating the data to align with these principal components, and allows for dimensionality reduction while preserving the most important information. "
+
+    Why variance / spread is important:
+        - Note: Spread is not variance, however it is proportional to variance.
+
+    Code:
+        code in pca.ipynb 
+
+
+
+        
+        
+ 
+
+

@@ -1,0 +1,39 @@
+When to remove outliers
+    - lets say age = 300 , ofcourse u have to remove it.
+
+When to keep :
+    In anamoly detection, bcz there we actually require that outlier.
+
+Most affected algo by outliers: (one that are weights based)
+    - Linear regression
+    - Logistic Regression
+    - Adaboost 
+    - Deep learning
+
+How to treat outliers:
+    1. Trimming : remove completely from data.
+                 fast processing
+                 but not good with llarge proportions of outliers in data
+
+    2. Capping : limiting data in range, and treating others as outlier and replace them with dome value.
+
+    3. Treating as missing value
+
+    4. Discretization : binning 
+
+How to detect outliers:
+    1. Normal dis : out of range of [mean - 3sigma  to  mean + 3sigma] - applicable if data is normally distributed or close to normally distriuted.
+    2. Skewed distribution : use inter quartile proximity rule.
+        min = Q1 - 1.5IQR    &    max Q3 + 1.5IQR, exceptthis range -> outlier
+    3. Other distriution
+        Percentile : data out of before 2.5 or 5, 97% or 99% -> outlier
+
+Techniques for outlier detection and removal:
+    1. Z- score
+    2. IQR based filtering
+    3. Percentile
+    4. Winsorizatrion
+
+
+
+
