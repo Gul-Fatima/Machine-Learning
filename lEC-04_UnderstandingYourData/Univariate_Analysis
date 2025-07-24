@@ -7,7 +7,7 @@ Univariate Analysis : Analysis on a single column at a time.
                                          CATEGORICAL DATA
 - Lets take example of 'survived' col of titanic dataset.
     - Total people travelling. -> df.info / df.shape
-    - The next question could be how many of them survivedand how many not? -> Countplot -> actually finding frequency count.
+    - The next question could be how many of them survived and how many not? -> Countplot -> actually finding frequency count.
         ~ sns.countplot(df['Survived'])
         ~ df['Survived'].value_count()
         ~ df['Survived'].value_count().plot(kind = 'bar')
